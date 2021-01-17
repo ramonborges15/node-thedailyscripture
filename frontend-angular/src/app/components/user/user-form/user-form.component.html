@@ -1,0 +1,30 @@
+<form [formGroup]="userFormGroup">
+    <h1 class="title">Cadastrar Novo Usuário</h1>
+
+    <div class="input-form">
+        <label for="name">Nome:</label>
+        <input id="name" type="text" formControleName="name" placeholder="Nome">
+    </div>
+
+    <div class="input-form">
+        <label for="email">Email:</label>
+        <input id="email" type="text" formControleName="email" placeholder="email@email.com.br">
+    </div>
+
+    <div class="input-form">
+        <label for="password">Senha:</label>
+        <input id="password" type="password" formControleName="password" placeholder="Senha">
+    </div>
+
+    <div class="input-form">
+        <label for="active">Ativo:</label>
+        <input id="active" type="checkbox" formControleName="active">
+    </div>
+
+    <div class="input-form">
+        <label for="groups">Selecione o grupo:</label>
+        <select name="groups" id="group" formControleName="group">
+            <option *ngFor="let group of group_list" [value]="group.id" [selected]="group.id == this.user.group_id">{{group.name}}</option>
+        </select>
+    </div>
+</form>

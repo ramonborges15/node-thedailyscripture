@@ -1,0 +1,48 @@
+{
+    "permission": [
+        {
+            "id": 1,
+            "name": "Acessar tela administrador",
+            "url": "http://localhost:4200/admin"    
+        },
+
+        {
+            "id": 2,
+            "name": "Acessar dashboard",
+            "url": "http://localhost:4200/"    
+        }
+    ],
+
+    "group": [
+        {
+            "id": 1,
+            "name": "admin"
+        },
+
+        {
+            "id": 2,
+            "name": "normal user"
+        }
+    ],
+
+    "group_has_permisssion": [
+        {
+            "group_id": 1,
+            "permission_id": 1
+        },
+
+        {
+            "group_id": 1,
+            "permission_id": 2
+        },
+
+        {
+            "group_id": 2,
+            "permission_id": 2
+        }
+    ],
+
+    "user": [
+
+    ]
+}
