@@ -27,8 +27,8 @@ export class UserFormComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.loadGroups();
     this.initForm();
+    this.loadGroups();
   }
 
   loadGroups() {
@@ -40,11 +40,30 @@ export class UserFormComponent implements OnInit {
   initForm() {
     this.userFormGroup = this.formBuilder.group({
       name: [this.user.name, Validators.required],
-      email: [this.user.email, Validators.required],
-      password: [this.user.password, Validators.required],
+      email: [this.user.email, [Validators.required, Validators.email]],
+      password: [this.user.password, [Validators.required, Validators.minLength(8)]],
       active: [this.user.active, Validators.required],
       group: [this.user.group_id, Validators.required]
     });
+  }
+
+  
+  formBindingFields() {
+    const form = this.userFormGroup.value;
+    
+    this.user.name = form.name;
+    this.user.email = form.email;
+    this.user.password = form.password;
+    this.user.active = form.active;
+    this.user.group_id = form.group;
+  }
+  
+  async submit() {
+    this.formBindingFields();
+    
+    if(this.userFormGroup.valid) {
+      this.userService.create(this.user);
+    } 
   }
 
 }
