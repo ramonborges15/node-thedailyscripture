@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { faEdit, faUser, faUserEdit, faUserTimes } from '@fortawesome/free-solid-svg-icons';
+import { User } from 'src/app/database/models/user';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  users: User[] = [];
+  editIcon = faUserEdit;
+  removeIcon = faUserTimes;
+  userIcon = faUser;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.userService.findAll().subscribe(users => {
+      this.users = users;
+    });
   }
 
 }

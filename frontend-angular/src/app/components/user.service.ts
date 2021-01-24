@@ -20,4 +20,19 @@ export class UserService {
   create(user: User){
     this.http.post(`${this.baseUrl}/user`, user).toPromise();
   }
+
+  findAll(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}/user`);
+  }
+
+  readById(id: string | null): Observable<User>{
+    return this.http.get<User>(`${this.baseUrl}/user/${id}`);
+  }
+
+  update(user: User): Observable<User>{
+    const id = user.id;
+    console.log(`${this.baseUrl}/user/${id}`);
+    
+    return this.http.put<User>(`${this.baseUrl}/user/${id}`, user);
+  }
 }

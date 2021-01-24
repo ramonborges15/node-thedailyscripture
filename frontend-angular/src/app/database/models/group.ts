@@ -1,4 +1,8 @@
-export interface Group {
-    id: number;
+export class Group {
+    id?: number;
     name: string;
+
+    constructor() {
+        this.name = '';
+    }
 }

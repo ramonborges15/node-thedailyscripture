@@ -1,1 +1,38 @@
-<p>user-list works!</p>
+<div class="flex-content">
+    <div class="flex-title">
+        <fa-icon class="icon-user" [icon]="userIcon"></fa-icon>
+        <h1 class="title">Usuários</h1>
+    </div>
+    <div>
+        <button class="primary" routerLink="/usuario/cadastrar">
+            Cadastrar
+        </button>
+    </div>
+</div>
+<table>
+    <tr class="header-table">
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Ações</th>
+
+    </tr>
+    <tr *ngFor="let user of users">
+        <th>{{user.id}}</th>
+        <th>{{user.name}}</th>
+        <th>{{user.email}}</th>
+        <th>{{user.active}}</th>
+        <th>
+            <div class="icons">
+                <a routerLink="/usuario/editar/{{user.id}}">
+                    <fa-icon class="icon-edit" [icon]="editIcon"></fa-icon>
+                </a>
+
+                <a>
+                    <fa-icon class="icon-remove" [icon]="removeIcon"></fa-icon>
+                </a>
+            </div>
+        </th>
+    </tr>
+</table>

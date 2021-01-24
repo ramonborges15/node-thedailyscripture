@@ -31,3 +31,28 @@ h1 {
     }
   }
 }
+
+button {
+  margin-top: 2em;
+  float: right;
+  padding: 1em;
+  border-style: none;
+  border-radius: 2em;
+  width: 12em;
+  outline: 0;
+  box-shadow: 0 0 0.7em #7ecaad;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    cursor: pointer;
+    box-shadow: none;
+  }
+}
+
+.primary {
+  background-color: #06bd77;
+  color: #ffffff;
+}

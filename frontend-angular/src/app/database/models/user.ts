@@ -1,8 +1,20 @@
-export interface User {
+import { GroupedObservable } from "rxjs";
+import { Group } from "./group";
+
+export class User {
     id?: number;
     name: string;
     email: string;
     password: string;
-    group_id: number;   
+    group: Group;   
     active: boolean;
+
+    constructor() {
+        this.name = '';
+        this.email = '';
+        this.password = '';
+        this.group = new Group();
+        this.active = false;
+
+    }
 }

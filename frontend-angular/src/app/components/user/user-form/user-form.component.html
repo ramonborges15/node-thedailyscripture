@@ -1,5 +1,5 @@
 <form [formGroup]="userFormGroup" (ngSubmit)="submit()">
-    <h1 class="title">Cadastrar Novo Usuário</h1>
+    <h1 class="title">{{clientOperation}} Novo Usuário</h1>
 
     <div class="input-form">
         <label for="name">Nome:</label>
@@ -24,12 +24,12 @@
     <div class="input-form">
         <label for="groups">Selecione o grupo:</label>
         <select name="groups" id="group" formControlName="group">
-            <option *ngFor="let group of group_list" [value]="group.id" [selected]="group.id == this.user.group_id">
+            <option *ngFor="let group of group_list" [value]="group" [selected]="group == this.user.group">
                 {{group.name}}</option>
         </select>
     </div>
 
-    <button type="submit">
+    <button class="primary" type="submit">
         Cadastrar
     </button>
 </form>

@@ -1,9 +1,13 @@
 div {
-    background-color: #2c002c;
+    background: linear-gradient(154.8deg, #ba0cc7 10.05%, #9C0EA8 54.62%);
     margin-bottom: 1em;
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
 }
 
 p {
     padding: 1.2em;
+    font-weight: bold;
     color: #FFFFFF;
 }
