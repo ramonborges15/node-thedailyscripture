@@ -1,20 +1,18 @@
 import { GroupedObservable } from "rxjs";
-import { Group } from "./group";
 
 export class User {
     id?: number;
     name: string;
     email: string;
     password: string;
-    group: Group;   
+    group_id: number;   
     active: boolean;
 
     constructor() {
         this.name = '';
         this.email = '';
         this.password = '';
-        this.group = new Group();
-        this.active = false;
-
+        this.group_id = 0;
+        this.active = true;
     }
 }
