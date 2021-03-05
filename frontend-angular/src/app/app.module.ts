@@ -12,6 +12,7 @@ import { ContentComponent } from './components/template/content/content.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { InputChipsComponent } from './components/input-chips/input-chips.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    ContentComponent
+    ContentComponent,
+    InputChipsComponent
   ],
   imports: [
     BrowserModule,

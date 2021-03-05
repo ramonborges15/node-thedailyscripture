@@ -9,30 +9,34 @@
         </button>
     </div>
 </div>
-<table>
-    <tr class="header-table">
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Ações</th>
+<table class="styled-table">
+    <thead>
+        <tr class="header-table">
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
 
-    </tr>
-    <tr *ngFor="let user of users">
-        <th>{{user.id}}</th>
-        <th>{{user.name}}</th>
-        <th>{{user.email}}</th>
-        <th>{{user.active}}</th>
-        <th>
-            <div class="icons">
-                <a routerLink="/usuario/editar/{{user.id}}">
-                    <fa-icon class="icon-edit" [icon]="editIcon"></fa-icon>
-                </a>
-
-                <a>
-                    <fa-icon class="icon-remove" [icon]="removeIcon"></fa-icon>
-                </a>
-            </div>
-        </th>
-    </tr>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <th>{{user.id}}</th>
+            <th>{{user.name}}</th>
+            <th>{{user.email}}</th>
+            <th>{{user.active}}</th>
+            <th>
+                <div class="icons">
+                    <a routerLink="/usuario/editar/{{user.id}}">
+                        <fa-icon class="icon-edit" [icon]="editIcon"></fa-icon>
+                    </a>
+    
+                    <a routerLink="/usuario/excluir/{{user.id}}">
+                        <fa-icon class="icon-remove" [icon]="removeIcon"></fa-icon>
+                    </a>
+                </div>
+            </th>
+        </tr>
+    </tbody>
 </table>

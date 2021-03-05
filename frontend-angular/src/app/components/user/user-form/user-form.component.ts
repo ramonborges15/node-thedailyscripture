@@ -15,6 +15,7 @@ export class UserFormComponent implements OnInit {
   user: User = new User();
   clientOperation: string = '';
   isCreateUser: boolean = true;
+  testes: string[] = ['Ramkon', 'Julio', 'Juvenor da Rocha'];
 
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,

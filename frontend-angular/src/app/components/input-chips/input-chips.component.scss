@@ -1,0 +1,28 @@
+.chips {
+    display: flex;
+
+    .chip {
+        background-color: #cbc9ce;
+        width: auto;
+        padding: 8px 15px 8px 17px;
+        border-radius: 16px;
+        margin: 5px;
+        display: flex;
+        justify-content: space-between;
+      
+        .content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          white-space: nowrap;
+        }
+
+        .icon-fechar {
+            padding-left: 10px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+      }
+}
