@@ -2,7 +2,7 @@
   "name": "thedailyscripture",
   "version": "1.0.0",
   "description": "Disponibilizar uma ferramenta online que permite qualquer pessoa iniciar e acompanhar o progresso da sua leitura bíblica.",
-  "main": "src/index.ts",
+  "main": "src/shared/infra/http/routes/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ramonborges15/node-thedailyscripture#readme",
   "devDependencies": {
+    "@types/express": "^4.17.11",
     "@types/node": "^14.14.22",
     "ts-node-dev": "^1.1.1",
     "typescript": "^3.3.3"

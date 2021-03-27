@@ -18,7 +18,7 @@ export class CreateUser1613092207034 implements MigrationInterface {
             
             -- "user" foreign keys
             
-            ALTER TABLE "user" ADD CONSTRAINT fk_user_group FOREIGN KEY (group_id) REFERENCES dbthedailyscripture."group"(id);`
+            ALTER TABLE "user" ADD CONSTRAINT fk_user_group FOREIGN KEY (group_id) REFERENCES "group"(id);`
         );
     }
 

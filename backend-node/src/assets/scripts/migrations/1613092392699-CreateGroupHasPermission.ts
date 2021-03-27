@@ -5,8 +5,11 @@ export class CreateGroupHasPermission1613092392699 implements MigrationInterface
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(
             `CREATE TABLE group_has_permission (
+                id int4 NOT NULL,
                 group_id int4 NOT NULL,
-                permission_id int4 NOT NULL
+                permission_id int4 NOT NULL,
+                
+                CONSTRAINT pk_group_has_permission PRIMARY KEY (id)
             );
             
             -- group_has_permission foreign keys

@@ -5,10 +5,13 @@
     "username": "postgres",
     "password": "root",
     "database": "thedailyscripturedb",
+    "entities": [
+        "./src/modules/infra/database/models/*.ts"
+    ],
     "migrations": [
-        "./src/database/migrations/*.ts"
+        "./src/assets/scripts/migrations/*.ts"
     ],
     "cli": {
-        "migrationsDir": "./src/database/migrations"
+        "migrationsDir": "./src/assets/scripts/migrations"
     }
 }

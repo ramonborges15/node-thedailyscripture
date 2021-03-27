@@ -67,6 +67,14 @@
       "group_id": 2,
       "active": true,
       "id": 4
+    },
+    {
+      "name": "Jamie Vardy2",
+      "email": "ramon.sales@etaure.com.br",
+      "password": "12312312321",
+      "group_id": 2,
+      "active": true,
+      "id": 5
     }
   ]
 }

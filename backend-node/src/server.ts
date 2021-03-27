@@ -1,7 +1,7 @@
 import express from "express";
-import routes from "./routes";
+import routes from "./shared/infra/http/routes";
 
-import "./database";
+import "./assets/scripts";
 
 const app = express();
 
