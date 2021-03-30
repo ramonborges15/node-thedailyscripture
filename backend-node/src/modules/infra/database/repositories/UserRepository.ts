@@ -11,9 +11,13 @@ class UserRepository implements IUserRepository {
         this.ormRepository = getRepository(User);
     }
 
+    public async create(user: User): Promise<User> {
+        const userCreated = this.ormRepository.create(user);
+        const userSaved = await this.ormRepository.save(userCreated);
+        return userSaved;       
+    }
+
     public async findAll(): Promise<{ users: UserDTO[]; count: number; }> {
-        console.log("Iniciando a consulta de findAll");
-        
         const [ users, count ] = await this.ormRepository.findAndCount();
 
         return {
@@ -21,7 +25,6 @@ class UserRepository implements IUserRepository {
             count: count
         }
     }
-
 
 }
 
