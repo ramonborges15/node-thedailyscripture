@@ -35,10 +35,14 @@ export default class UserController {
             }
             
             const passwordEncrypt = await bcrypt.hash(user.password, 15);
-            user.password = passwordEncrypt;
-
+            
             const createUserUseCase = new CreateUserUseCase(userRepository);
-            const userCreated = await createUserUseCase.execute(user);
+            const userCreated = await createUserUseCase.execute({
+                email: user.email,
+                groupId: 2,
+                name: user.name,
+                password: passwordEncrypt
+            });
 
             return response.status(201).json(userCreated);
 

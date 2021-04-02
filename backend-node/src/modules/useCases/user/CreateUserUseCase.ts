@@ -1,5 +1,4 @@
 import UserDTO from "../../dtos/UserDTO";
-import { User } from "../../infra/database/models/User";
 import IUserRepository from "../../repositories/IUserRepository";
 
 export default class CreateUserUseCase {
@@ -8,8 +7,8 @@ export default class CreateUserUseCase {
         private userRepository: IUserRepository
     ){}
 
-    public async execute(user: User): Promise<UserDTO> {
+    public async execute(user: CreateUserDTO): Promise<UserDTO> {
         const userCreated = await this.userRepository.create(user);
-        return new UserDTO(userCreated);
+        return userCreated;
     }
 }

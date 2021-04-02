@@ -11,10 +11,10 @@ class UserRepository implements IUserRepository {
         this.ormRepository = getRepository(User);
     }
 
-    public async create(user: User): Promise<User> {
+    public async create(user: CreateUserDTO): Promise<UserDTO> {
         const userCreated = this.ormRepository.create(user);
         const userSaved = await this.ormRepository.save(userCreated);
-        return userSaved;       
+        return new UserDTO(userSaved);       
     }
 
     public async findAll(): Promise<{ users: UserDTO[]; count: number; }> {
