@@ -6,7 +6,7 @@ export default class FindUserByEmailUseCase {
         private userRepository: IUserRepository
     ){}
 
-    public async execute(email: string): Promise<{ userDTO: UserDTO | undefined }> {
+    public async execute(email: string): Promise<UserDTO | undefined> {
         const user = await this.userRepository.findByEmail(email);
         return user;
     }

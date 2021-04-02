@@ -3,6 +3,7 @@ import CreateUserUseCase from "../../../useCases/user/CreateUserUseCase";
 import FindAllUsersUseCase from "../../../useCases/user/FindAllUsersUseCase";
 import FindUserByEmailUseCase from "../../../useCases/user/FindUserByEmailUseCase";
 import UserRepository from "../../database/repositories/UserRepository";
+import bcrypt from "bcrypt";
 
 export default class UserController {
 
@@ -27,12 +28,15 @@ export default class UserController {
             const user = request.body;
 
             const findUserByEmailUseCase = new FindUserByEmailUseCase(userRepository);
-            const userAlreadyExists = findUserByEmailUseCase.execute(user.email);
+            const userAlreadyExists = await findUserByEmailUseCase.execute(user.email);
             
             if(userAlreadyExists) {
                 return response.status(406).json({ message: "Esse e-mail já se encontra cadastrado."});
             }
             
+            const passwordEncrypt = await bcrypt.hash(user.password, 15);
+            user.password = passwordEncrypt;
+
             const createUserUseCase = new CreateUserUseCase(userRepository);
             const userCreated = await createUserUseCase.execute(user);
 
