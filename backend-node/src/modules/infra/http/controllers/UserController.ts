@@ -1,6 +1,7 @@
 import { Request, Response} from "express";
 import CreateUserUseCase from "../../../useCases/user/CreateUserUseCase";
 import FindAllUsersUseCase from "../../../useCases/user/FindAllUsersUseCase";
+import FindUserByEmailUseCase from "../../../useCases/user/FindUserByEmailUseCase";
 import UserRepository from "../../database/repositories/UserRepository";
 
 export default class UserController {
@@ -23,8 +24,14 @@ export default class UserController {
         const userRepository = new UserRepository();
 
         try {
-            console.log("user", request.body);
             const user = request.body;
+
+            const findUserByEmailUseCase = new FindUserByEmailUseCase(userRepository);
+            const userAlreadyExists = findUserByEmailUseCase.execute(user.email);
+            
+            if(userAlreadyExists) {
+                return response.status(406).json({ message: "Esse e-mail já se encontra cadastrado."});
+            }
             
             const createUserUseCase = new CreateUserUseCase(userRepository);
             const userCreated = await createUserUseCase.execute(user);
