@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { UserFormComponent } from './components/user/user-form/user-form.component';
-import { UserListComponent } from './components/user/user-list/user-list.component';
+import { UserFormComponent } from './administrativo/pages/user/user-form/user-form.component';
+import { UserListComponent } from './administrativo/pages/user/user-list/user-list.component';
+import { HomeComponent } from './shared/ui/home/home/home.component';
 
 const routes: Routes = [
   {

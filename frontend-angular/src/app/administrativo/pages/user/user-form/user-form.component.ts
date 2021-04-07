@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/database/models/user';
-import { UserService } from '../../user.service';
+import { User } from 'src/app/administrativo/models/user';
+import { UserService } from 'src/app/administrativo/services/user.service';
 
 @Component({
   selector: 'app-user-form',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faUser, faUserEdit, faUserTimes } from '@fortawesome/free-solid-svg-icons';
-import { User } from 'src/app/database/models/user';
-import { UserService } from '../../user.service';
+import { User } from 'src/app/administrativo/models/user';
+import { UserService } from 'src/app/administrativo/services/user.service';
 
 @Component({
   selector: 'app-user-list',

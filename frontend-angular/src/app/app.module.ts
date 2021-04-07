@@ -1,29 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AdministrativoModule } from './administrativo/administrativo.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserFormComponent } from './components/user/user-form/user-form.component';
-import { UserListComponent } from './components/user/user-list/user-list.component';
-import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/template/header/header.component';
-import { ContentComponent } from './components/template/content/content.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { InputChipsComponent } from './components/input-chips/input-chips.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent,
-    UserListComponent,
-    LoginComponent,
-    HomeComponent,
-    HeaderComponent,
-    ContentComponent,
-    InputChipsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +19,8 @@ import { InputChipsComponent } from './components/input-chips/input-chips.compon
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    
+    AdministrativoModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
