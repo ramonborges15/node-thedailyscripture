@@ -1,0 +1,112 @@
+.col-2 {
+  display: flex;
+
+  .left-content {
+    width: 100%;
+
+    div {
+
+      margin: 50px 80px;
+      
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    h1 {
+      position: static;
+      width: 413px;
+      height: 54px;
+      color: #2c042f;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 90.6%;
+
+      margin: 50px 80px;
+    }
+
+    .input {
+      display: flex;
+      flex-direction: column;
+      margin: 50px 80px;
+
+      label {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 23.8882px;
+        line-height: 90.6%;
+        color: #2c042f;
+        margin-bottom: 15px;
+      }
+
+      input {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 18.5797px 132.712px 18.5797px 26.5424px;
+
+        background: #f5f5f5;
+        border-radius: 10.617px;
+        border: 0px;
+        outline-style: none;
+      }
+    }
+
+    .button {
+        
+        button {
+            background: #07CE9E;
+            box-shadow: 0px 7px 0px #05A27C;
+            border-radius: 10.62px;
+            color: white;
+            border: 0px;
+            outline-style: none; 
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+        }
+    }
+
+    .text {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 90.6%;
+        text-align-last: center;
+
+        &.grey {
+            color: #B8B8B8;
+        }
+
+        a {
+            color: #9C15BE;
+            font-weight: 600;
+        }
+
+        margin: 50px 80px;
+    }
+  }
+
+  .purple {
+    position: static;
+    width: 705px;
+    left: 710px;
+    top: 0px;
+
+    background: linear-gradient(154.8deg, #da02ea 10.05%, #9c0ea8 54.62%);
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+  }
+}
