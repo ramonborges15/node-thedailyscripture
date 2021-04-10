@@ -31,34 +31,6 @@
       margin: 43px 131px;
     }
 
-    .input {
-      display: flex;
-      flex-direction: column;
-      margin: 34px 131px;
-
-      label {
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 17px;
-        line-height: 90.6%;
-        color: #2c042f;
-        margin-bottom: 15px;
-      }
-
-      input {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 15px 132.712px 15px 26.5424px;
-
-        background: #f5f5f5;
-        border-radius: 10.617px;
-        border: 0px;
-        outline-style: none;
-      }
-    }
-
     .button {
       margin: 50px 131px;
 
@@ -102,10 +74,7 @@
     width: 705px;
     left: 710px;
     top: 0px;
-
     background: linear-gradient(154.8deg, #da02ea 10.05%, #9c0ea8 54.62%);
-
-    /* Inside Auto Layout */
 
     flex: none;
     order: 1;

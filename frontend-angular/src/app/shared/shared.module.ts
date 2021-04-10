@@ -11,6 +11,7 @@ import { ContentModule } from './ui/content/content.module';
 import { HeaderModule } from './ui/header/header.module';
 import { HomeModule } from './ui/home/home.module';
 import { InputChipsModule } from './ui/input-chips/input-chips.module';
+import { InputModule } from './ui/input/input.module';
 
 
 
@@ -29,6 +30,7 @@ import { InputChipsModule } from './ui/input-chips/input-chips.module';
     HeaderModule,
     HomeModule,
     InputChipsModule,
+    InputModule
   ],
   exports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { InputChipsModule } from './ui/input-chips/input-chips.module';
     HeaderModule,
     HomeModule,
     InputChipsModule,
+    InputModule
   ]
 })
 export class SharedModule { }
