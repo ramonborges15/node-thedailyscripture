@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LoginComponent } from '../administrativo/pages/login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ButtonModule } from './ui/button/button.module';
 import { ContentModule } from './ui/content/content.module';
 import { HeaderModule } from './ui/header/header.module';
 import { HomeModule } from './ui/home/home.module';
@@ -30,7 +30,8 @@ import { InputModule } from './ui/input/input.module';
     HeaderModule,
     HomeModule,
     InputChipsModule,
-    InputModule
+    InputModule,
+    ButtonModule
   ],
   exports: [
     CommonModule,
@@ -44,7 +45,8 @@ import { InputModule } from './ui/input/input.module';
     HeaderModule,
     HomeModule,
     InputChipsModule,
-    InputModule
+    InputModule,
+    ButtonModule
   ]
 })
 export class SharedModule { }
