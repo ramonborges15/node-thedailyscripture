@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-login',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  faQuoteLeft = faQuoteLeft;
+  
   constructor() { }
 
   ngOnInit(): void {
