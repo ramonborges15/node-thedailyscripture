@@ -1,0 +1,118 @@
+.col-2 {
+    display: flex;
+  
+    form {
+      width: 800px;
+  
+      div {
+        margin: 30px 80px;
+  
+        img {
+          // centralizar conteúdo dentro da div
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
+      }
+  
+      h1 {
+        position: static;
+        width: 413px;
+        height: 54px;
+        color: #2c042f;
+  
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 90.6%;
+  
+        margin: 43px 131px;
+      }
+  
+      .text {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 80%;
+        text-align-last: center;
+  
+        &.grey {
+          color: #b8b8b8;
+        }
+  
+        a {
+          color: #9c15be;
+          font-weight: 600;
+        }
+  
+        margin: 25px 80px;
+      }
+    }
+  
+    .purple {
+      position: static;
+      width: 705px;
+      left: 710px;
+      top: 0px;
+      background: linear-gradient(154.8deg, #da02ea 10.05%, #9c0ea8 54.62%);
+  
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+      margin: 0px 0px;
+  
+      .box {
+        margin-top: 150px;
+        margin-left: 40px;
+        margin-right: 40px;
+  
+        .box-aspas {
+          background-color: #ffffff;
+          width: 45px;
+          height: 39px;
+          border-radius: 66px;
+          margin: 12px;
+          padding: 28px 25px;
+  
+          fa-icon {
+            color: #9c0ea8;
+            font-size: 43px;
+          }
+        }
+  
+        .box-verse {
+          margin: 78px 12px;
+          font-family: Montserrat;
+          color: #ffffff;
+  
+          h2 {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 50px;
+            line-height: 93.6%;
+            display: flex;
+            align-items: center;
+          }
+  
+          .verse {
+            font-style: italic;
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 90.6%;
+            margin: 42px 0px;
+          }
+  
+          .reference {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 90.6%;
+          }
+        }
+      }
+    }
+  }
+  
