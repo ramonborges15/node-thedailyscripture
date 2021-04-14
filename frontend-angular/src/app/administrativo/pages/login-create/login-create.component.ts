@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
-import { CreateUserDTO } from '../../dtos/CreateUserDTO';
+import { UserCreateDTO } from '../../dtos/UserCreateDTO';
+import { UserService } from '../../services/user.service';
 
 
 
@@ -15,11 +16,14 @@ export class LoginCreateComponent implements OnInit {
 
   faQuoteLeft = faQuoteLeft;
   formGroup: FormGroup;
-  userDTO: CreateUserDTO = new CreateUserDTO();
+  userCreateDTO: UserCreateDTO = new UserCreateDTO();
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     private routes: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -27,22 +31,33 @@ export class LoginCreateComponent implements OnInit {
 
   initForm() {
     this.formGroup = this.formBuilder.group({
-      name: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.minLength(8)]]
+      name: [this.userCreateDTO.name, Validators.required],
+      email: [this.userCreateDTO.email, [Validators.required, Validators.email]],
+      password: [this.userCreateDTO.password, [Validators.required, Validators.minLength(8)]]
     });
   }
 
-  submit() {
+  handleSubmit() {
     this.formBindingFields();
+
+    if(!this.formGroup.valid) {
+      return;
+    }
+
+    this.userService.create(this.userCreateDTO);
+    this.goToLogin();
+  }
+
+  goToLogin() {
+    return this.routes.navigateByUrl("/login")
   }
 
   formBindingFields() {
     const form = this.formGroup.value;
     
-    this.userDTO.name = form.name;
-    this.userDTO.email = form.email;
-    this.userDTO.password = form.password;
+    this.userCreateDTO.name = form.name;
+    this.userCreateDTO.email = form.email;
+    this.userCreateDTO.password = form.password;
   }
 
 }

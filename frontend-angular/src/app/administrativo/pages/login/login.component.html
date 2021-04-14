@@ -1,21 +1,18 @@
 <div class="col-2">
-    <div class="left-content">
-
+    <form [formGroup]="formGroup">
         <div>
             <img src="../../../../assets/img/logoMarca.svg">
         </div>
 
         <h1>Bem vindo ao The Daily Scripture</h1>
 
-        <form [formGroup]="formGroup">
-            <app-input label="Email" type="email" [formControlRequirements]="formGroup.controls['email']"></app-input>
-            <app-input label="Senha" type="password" [formControlRequirements]="formGroup.controls['password']"></app-input>
+        <app-input label="Email" type="email" [formControlRequirements]="formGroup.controls['email']"></app-input>
+        <app-input label="Senha" type="password" [formControlRequirements]="formGroup.controls['password']"></app-input>
 
-            <app-button text="Entrar"></app-button>
-        </form>
+        <app-button text="Entrar"></app-button>
 
         <p class="text grey">Ainda não têm conta? <a routerLink="/create">Cadastre-se</a></p>
-    </div>
+    </form>
 
     <div class="purple">
         <div class="box">

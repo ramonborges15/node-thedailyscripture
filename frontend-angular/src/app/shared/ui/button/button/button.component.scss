@@ -2,6 +2,10 @@
     margin: 50px 131px;
 
     button {
+      &:hover {
+        cursor: pointer;
+      }
+
       background: #07ce9e;
       box-shadow: 0px 7px 0px #05a27c;
       border-radius: 10.62px;
