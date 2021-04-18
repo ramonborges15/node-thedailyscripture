@@ -8,6 +8,7 @@ export default class FindUserByEmailUseCase {
 
     public async execute(email: string): Promise<UserDTO | undefined> {
         const user = await this.userRepository.findByEmail(email);
-        return user;
+        
+        return user ? new UserDTO(user) : user;
     }
 }

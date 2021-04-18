@@ -1,9 +1,10 @@
 import { Request, Response} from "express";
-import CreateUserUseCase from "../../../useCases/user/CreateUserUseCase";
+
+import bcrypt from "bcrypt";
 import FindAllUsersUseCase from "../../../useCases/user/FindAllUsersUseCase";
 import FindUserByEmailUseCase from "../../../useCases/user/FindUserByEmailUseCase";
+import CreateUserUseCase from "../../../useCases/user/CreateUserUseCase";
 import UserRepository from "../../database/repositories/UserRepository";
-import bcrypt from "bcrypt";
 
 export default class UserController {
 

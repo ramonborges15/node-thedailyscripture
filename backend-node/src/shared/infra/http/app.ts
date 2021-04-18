@@ -2,6 +2,7 @@ import 'reflect-metadata'
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes';
+import authMiddleware from '../http/middlewares/auth';
 
 export class App {
     public express: express.Application;
@@ -16,6 +17,7 @@ export class App {
         this.express.use(express.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
         this.express.use(bodyParser.json());
+        this.express.use(authMiddleware);
     }
 
     private routes(): void {

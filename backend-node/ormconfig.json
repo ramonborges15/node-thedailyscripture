@@ -6,7 +6,7 @@
     "password": "root",
     "database": "thedailyscripturedb",
     "entities": [
-        "./src/modules/infra/database/models/*.ts"
+        "./src/modules/organization/infra/database/models/*.ts"
     ],
     "migrations": [
         "./src/assets/scripts/migrations/*.ts"

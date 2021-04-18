@@ -8,7 +8,8 @@
     "outDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true // permite que um arquivo json seja importado em outro arquivo.
   },
   "lib": ["es2015"]
 }
