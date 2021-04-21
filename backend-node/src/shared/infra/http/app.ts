@@ -17,7 +17,7 @@ export class App {
         this.express.use(express.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
         this.express.use(bodyParser.json());
-        this.express.use(authMiddleware);
+        // this.express.use(authMiddleware);
     }
 
     private routes(): void {

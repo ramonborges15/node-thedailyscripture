@@ -1,4 +1,5 @@
 import { Router } from "express";
+import authInfoRequest from "../../../../../shared/infra/http/middlewares/auth";
 import AuthController from "../controllers/AuthController";
 
 export class AuthRoute {
@@ -8,6 +9,7 @@ export class AuthRoute {
 
     constructor() {
         this.authRouter = Router();
+        this.authRouter.use(authInfoRequest);
         this.authController = new AuthController();
     }
 

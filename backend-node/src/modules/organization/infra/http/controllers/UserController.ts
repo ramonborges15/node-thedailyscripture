@@ -5,6 +5,7 @@ import FindAllUsersUseCase from "../../../useCases/user/FindAllUsersUseCase";
 import FindUserByEmailUseCase from "../../../useCases/user/FindUserByEmailUseCase";
 import CreateUserUseCase from "../../../useCases/user/CreateUserUseCase";
 import UserRepository from "../../database/repositories/UserRepository";
+import GenerateTokenUseCase from "../../../../auth/useCases/auth/GenerateTokenUseCase";
 
 export default class UserController {
 
@@ -44,6 +45,10 @@ export default class UserController {
                 name: user.name,
                 password: passwordEncrypt
             });
+
+            const generateTokenUseCase = new GenerateTokenUseCase();
+            const token = await generateTokenUseCase.execute({ id: userCreated.id });
+            userCreated.token = token;
 
             return response.status(201).json(userCreated);
 
