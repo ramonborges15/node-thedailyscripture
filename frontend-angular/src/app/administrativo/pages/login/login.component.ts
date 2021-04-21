@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
-import * as EventEmitter from 'events';
+import { ProfileModel } from 'src/app/shared/models/profile.model';
+import { ProfileService } from 'src/app/shared/services/profile.service';
+import { SessionService } from 'src/app/shared/services/session.service';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
 
@@ -18,14 +20,17 @@ export class LoginComponent implements OnInit {
   faQuoteLeft = faQuoteLeft;
   formGroup: FormGroup;
   private user: User = new User();
+  profile: ProfileModel = new ProfileModel();
   
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private routes: Router
+    private routes: Router,
+    private profileService: ProfileService
   ) { }
 
   ngOnInit(): void {
+    this.authService.showMenuEmitter.emit(false);
     this.initForm();
   }
 
@@ -50,6 +55,13 @@ export class LoginComponent implements OnInit {
 
     if(userAuthenticaded) {
       this.authService.showMenuEmitter.emit(true);
+
+      this.profile.userId = userAuthenticaded.user.id;
+      this.profile.userEmail = userAuthenticaded.user.email;
+      this.profile.userName = userAuthenticaded.user.name;
+      this.profile.token = userAuthenticaded.token;
+      this.profileService.save(this.profile);
+      
       this.goToHome();
     }
   }
