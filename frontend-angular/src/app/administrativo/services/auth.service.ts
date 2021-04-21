@@ -1,17 +1,27 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
+
+interface Props {
+  email: string,
+  password: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  baseUrl = "/api/users/";
+  showMenuEmitter = new EventEmitter;
 
+  baseUrl = "/api/auth/";
   constructor(private http: HttpClient) { }
 
-  userAuthenticated(user: User): Promise<any>{
-    return this.http.get(`${this.baseUrl}/auth?email=${user.email}&password=${user.password}`).toPromise();
+  userAuthenticated({ email, password }: Props, token: string): Promise<any>{
+    const headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    const httpOptions = {
+      headers: headers_object
+    };
+
+    return this.http.post(`${this.baseUrl}`, { email, password }, httpOptions).toPromise();
   }
 }

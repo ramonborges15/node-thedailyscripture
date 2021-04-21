@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+import * as EventEmitter from 'events';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
 
@@ -12,13 +14,15 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  tokenFake: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTkwMTUwMjgsImV4cCI6MTY1MDU1MTAyOH0.VgCF4qfXgN_l73TaaYuYJJLpqTCm3ImKBIRSWhiP09M";
   faQuoteLeft = faQuoteLeft;
   formGroup: FormGroup;
   private user: User = new User();
   
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private routes: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,14 +41,20 @@ export class LoginComponent implements OnInit {
     this.user.email = form.email;
     this.user.password = form.password;
 
-    const userAuthenticaded = await this.authService.userAuthenticated(this.user);
+    const userAuthenticaded = await this.authService.userAuthenticated(
+      {
+        email: this.user.email,
+        password: this.user.password
+      }, 
+      this.tokenFake);
 
     if(userAuthenticaded) {
+      this.authService.showMenuEmitter.emit(true);
       this.goToHome();
     }
   }
 
   goToHome() {
-
+    this.routes.navigateByUrl('/inicio');
   }
 }
