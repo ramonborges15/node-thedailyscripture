@@ -6,18 +6,13 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { InputChipsModule } from '../shared/ui/input-chips/input-chips.module';
-import { LoginComponent } from './pages/login/login.component';
-import { UserFormComponent } from './pages/user/user-form/user-form.component';
-import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { LoginCreateComponent } from './pages/login-create/login-create.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
 @NgModule({
   declarations: [
-    UserFormComponent,
-    UserListComponent,
     LoginComponent,
     LoginCreateComponent
   ],
@@ -32,8 +27,6 @@ import { LoginCreateComponent } from './pages/login-create/login-create.componen
     RouterModule,
   ],
   exports: [
-    UserFormComponent,
-    UserListComponent,
     LoginComponent
   ]
 })

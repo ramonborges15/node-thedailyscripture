@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+import { User } from '../../models/user';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -12,8 +14,12 @@ export class LoginComponent implements OnInit {
 
   faQuoteLeft = faQuoteLeft;
   formGroup: FormGroup;
+  private user: User = new User();
   
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -21,15 +27,24 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.formGroup = this.formBuilder.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.minLength(8)]]
+      email: [this.user.email, [Validators.required, Validators.email]],
+      password: [this.user.password, [Validators.required, Validators.minLength(8)]]
     });
   }
 
-  handleSubmit() {
+  async handleLogin() {
     const form = this.formGroup.value;
-    console.log("form", form);
-    
+    this.user.email = form.email;
+    this.user.password = form.password;
+
+    const userAuthenticaded = await this.authService.userAuthenticated(this.user);
+
+    if(userAuthenticaded) {
+      this.goToHome();
+    }
   }
 
+  goToHome() {
+
+  }
 }

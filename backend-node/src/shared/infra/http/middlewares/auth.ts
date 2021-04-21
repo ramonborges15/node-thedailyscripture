@@ -26,9 +26,7 @@ export default function authInfoRequest (request: Request, response: Response, n
             return response.status(401).send({ error: 'Token inválido!' });
         }
 
-        request.body.userId = decoded.id;
-
-        // console.log("request", request.body);
+        // request.body.userId = decoded.id;
         
         return next();
     });

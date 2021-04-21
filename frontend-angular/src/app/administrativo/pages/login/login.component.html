@@ -9,7 +9,7 @@
         <app-input label="Email" type="email" [formControlRequirements]="formGroup.controls['email']"></app-input>
         <app-input label="Senha" type="password" [formControlRequirements]="formGroup.controls['password']"></app-input>
 
-        <app-button text="Entrar"></app-button>
+        <app-button text="Entrar" (onClick)="handleLogin()"></app-button>
 
         <p class="text grey">Ainda não têm conta? <a routerLink="/create">Cadastre-se</a></p>
     </form>
