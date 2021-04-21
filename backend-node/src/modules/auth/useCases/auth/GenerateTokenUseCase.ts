@@ -7,7 +7,7 @@ export default class GenerateTokenUseCase {
 
     public async execute(params = {}): Promise<any> {
         return jwt.sign(params, authConfig.secret, {
-            expiresIn: 86400, // vai durar 1 dia
+            expiresIn: '365d', // vai durar 1 ano
         });
     }
 }
