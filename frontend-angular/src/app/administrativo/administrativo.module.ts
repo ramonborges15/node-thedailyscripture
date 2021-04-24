@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { HomeComponent } from './pages/home/home/home.component';
 import { LoginCreateComponent } from './pages/login-create/login-create.component';
 import { LoginComponent } from './pages/login/login.component';
+import { GeneralContentComponent } from './pages/general-content/general-content.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -16,7 +17,8 @@ import { LoginComponent } from './pages/login/login.component';
   declarations: [
     LoginComponent,
     LoginCreateComponent,
-    HomeComponent
+    HomeComponent,
+    GeneralContentComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { LoginComponent } from './pages/login/login.component';
   exports: [
     LoginComponent,
     LoginCreateComponent,
-    HomeComponent
+    HomeComponent,
+    GeneralContentComponent
   ]
 })
 export class AdministrativoModule { }

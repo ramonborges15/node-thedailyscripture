@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import { ProfileModel } from 'src/app/shared/models/profile.model';
 import { ProfileService } from 'src/app/shared/services/profile.service';
-import { SessionService } from 'src/app/shared/services/session.service';
-import { User } from '../../models/user';
+import { User } from '../../models/User';
 import { AuthService } from '../../services/auth.service';
 
 
@@ -21,7 +20,7 @@ export class LoginComponent implements OnInit {
   formGroup: FormGroup;
   private user: User = new User();
   profile: ProfileModel = new ProfileModel();
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -50,10 +49,10 @@ export class LoginComponent implements OnInit {
       {
         email: this.user.email,
         password: this.user.password
-      }, 
+      },
       this.tokenFake);
 
-    if(userAuthenticaded) {
+    if (userAuthenticaded) {
       this.authService.showMenuEmitter.emit(true);
 
       this.profile.userId = userAuthenticaded.user.id;
@@ -61,7 +60,7 @@ export class LoginComponent implements OnInit {
       this.profile.userName = userAuthenticaded.user.name;
       this.profile.token = userAuthenticaded.token;
       this.profileService.save(this.profile);
-      
+
       this.goToHome();
     }
   }
